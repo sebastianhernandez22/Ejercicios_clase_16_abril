@@ -6,6 +6,45 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function esNumero(valor) {
+            return !isNaN(parseFloat(valor)) && isFinite(valor);
+        }
+
+        function calcularOperacion(numero1, numero2, operacion) {
+            switch (operacion) {
+                case '+':
+                    return numero1 + numero2;
+                case '-':
+                    return numero1 - numero2;
+                case '*':
+                    return numero1 * numero2;
+                case '/':
+                    return numero1 / numero2;
+                default:
+                    return null;
+            }
+        }
+
+        let numero1 = prompt("Ingresa el primer número:");
+        let numero2 = prompt("Ingresa el segundo número:");
+        let operacion = prompt("Introduce algunos de estos signos para realizar la operación +, -, *, /:");
+
+        if (esNumero(numero1) && esNumero(numero2)) {
+            numero1 = parseFloat(numero1);
+            numero2 = parseFloat(numero2);
+
+            let resultado = calcularOperacion(numero1, numero2, operacion);
+
+            if (resultado !== null) {
+                alert(`El resultado de ${numero1} ${operacion} ${numero2} es: ${resultado}`);
+            } else {
+                alert("La Operación Incorrecta");
+            }
+        } else {
+
+            alert("ingresa números válidos, no ingreses texto please");
+        }
+    </script>
 </body>
 </html>
