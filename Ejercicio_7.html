@@ -6,6 +6,38 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function esNumero(valor) {
+            return !isNaN(parseFloat(valor)) && isFinite(valor);
+        }
+
+        function calcularMedia(notas) {
+            let suma = 0;
+            for (let i = 0; i < notas.length; i++) {
+                suma += notas[i];
+            }
+            return suma / notas.length;
+        }
+
+        let notas = [];
+        for (let i = 0; i < 3; i++) {
+            let nota;
+            do {
+                nota = prompt(`Ingresa la nota, por favor${i + 1}:`);
+            } while (!esNumero(nota));
+            notas.push(parseFloat(nota));
+        }
+
+        let media = calcularMedia(notas);
+
+        let mensaje;
+        if (media < 3) {
+            mensaje = `Reprobado, La nota media es: ${media}`;
+        } else {
+            mensaje = `Aprobado, La nota media es: ${media}`;
+        }
+
+        alert(mensaje);
+    </script>
 </body>
 </html>
